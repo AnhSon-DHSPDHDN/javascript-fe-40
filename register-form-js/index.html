@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Form Control</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <div class="main">
+    <form class="form-register">
+      <h1 class="form-register__title">Register application form</h1>
+      <div class="form-register__group">
+        <label class="form-register__label">E-mail:</label>
+        <input class="form-register__input-text" type="text" name="email" />
+      </div>
+
+      <div class="form-register__group">
+        <label class="form-register__label">Mobile phone:</label>
+        <input class="form-register__input-text" type="text" />
+      </div>
+
+      <div class="form-register__group">
+        <label class="form-register__label">Country:</label>
+        <select class="form-register__input-select">
+          <option value="VN">VN</option>
+          <option value="Campuchia">Campuchia</option>
+          <option value="Laos">Laos</option>
+        </select>
+      </div>
+
+      <div class="form-register__group">
+        <label class="form-register__label">Contact by me:</label>
+        <div>
+          <span>
+            <input value="text" type="radio" name="contact" />
+            Text
+          </span>
+        </div>
+        <div>
+          <span>
+            <input value="email" type="radio" name="contact" />
+            Email
+          </span>
+        </div>
+        <div>
+          <span>
+            <input value="Don't contact me" type="radio" name="contact" />
+            Don't Contact me
+          </span>
+        </div>
+      </div>
+
+      <div class="form-register__group">
+        <label class="form-register__label">Terms of Service:</label>
+        <span>
+          <input type="checkbox" name="term-of-service" />
+          I Accept
+        </span>
+        <span class="please-checked-term error"></span>
+      </div>
+
+      <div>
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+
+    <div class="result-form">
+
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

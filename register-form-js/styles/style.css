@@ -1,0 +1,36 @@
+.main {
+  width: 100%;
+}
+
+.form-register {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.form-register__group {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.form-register__label {
+  min-width: 130px;
+}
+
+.form-register__input-text {
+  display: inline-block;
+  width: calc(100% - 140px);
+}
+
+.form-register__input-select {
+  display: flex;
+  width: calc(100% - 140px);
+}
+
+.error {
+  color: red;
+}
