@@ -11,11 +11,22 @@ function addTask(taskName, createBy) {
     createAt: new Date(),
     createBy: createBy,
     id: new Date().getTime(), // ms kể từ thời điểm hiện tại => 1970
+    isDone: false, // Để kiểm tra trạng thái hoàn thành của task
   };
 
   allTask.push(task);
   // Lưu all task vào localStorage
   localStorage.setItem(KEY_TASKS_LIST, JSON.stringify(allTask));
+}
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const dateOfMonth = date.getDate();
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+
+  return `${year}/${month}/${dateOfMonth} ${hour}:${minute}`;
 }
 
 function renderTasks() {
@@ -24,18 +35,41 @@ function renderTasks() {
 
   allTask.forEach((task, index) => {
     bodyTableHtml += `
-      <tr>
+      <tr class="${task.isDone ? "task--done" : ""}">
         <td>${index + 1}</td>
         <td>${task.taskName}</td>
-        <td>${task.createAt}</td>
+        <td>${formatDate(new Date(task.createAt))}</td>
         <td>
           <button onclick="deleteTaskById(${task.id})">Del</button>
           <button onclick="showTaskEdit(${task.id})">Edit</button>
+          ${
+            task.isDone
+              ? ""
+              : `<button onclick="handleDoneTask(${task.id})">Done</button>`
+          }
         </td>
       </tr>`;
   });
 
   tbodyElement.innerHTML = bodyTableHtml;
+}
+
+function handleDoneTask(taskId) {
+  // Tìm indexTask cần make done
+  const indexTaskMakeDone = allTask.findIndex((task) => task.id === taskId);
+
+  if (indexTaskMakeDone !== -1) {
+    // Trong trường hợp indexTaskMakeDone khác -1 => tồn tại giá trị thoã mãn allTask
+    allTask[indexTaskMakeDone] = {
+      ...allTask[indexTaskMakeDone], // Lấy các properties khác theo properties cũ
+      isDone: true, // Cập nhật task hiện tại trạng thái done => true
+    };
+    renderTasks();
+
+    // Đồng bộ allTask với localStorage
+    localStorage.setItem(KEY_TASKS_LIST, JSON.stringify(allTask));
+    updateContentBtnAddTask();
+  }
 }
 
 function updateContentBtnAddTask() {
