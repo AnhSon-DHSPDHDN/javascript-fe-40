@@ -4,33 +4,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style/style.css">
-  <title>Task Manager Application</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 600px;
+    }
+
+    form {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .delete-button {
+      background-color: #ff0000;
+    }
+
+    .delete-button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+  <title>Student Information</title>
 </head>
 
 <body>
-  <div>
-    <form class="js-form-task">
-      <label>Task Name:</label>
-      <input type="text" class="js-input-task-name" />
-      <button type="submit" class="js-btn-add-task">Add Task</button>
+
+  <div class="container">
+    <form id="studentForm">
+      <label for="id">ID:</label>
+      <input type="text" id="id" required>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" required minlength="5" maxlength="15">
+
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" required>
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" required maxlength="10">
+
+      <button type="button" onclick="submitForm()">Submit</button>
     </form>
 
-    <table>
+    <table id="studentTable">
       <thead>
         <tr>
-          <th>STT</th>
-          <th>TaskName</th>
-          <th>CreateAt</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Phone Number</th>
           <th>Action</th>
         </tr>
       </thead>
-      <tbody class="js-tbody-task-app">
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John Doe</td>
+          <td>1990-01-01</td>
+          <td>1234567890</td>
+          <td><button class="delete-button" onclick="deleteStudent(1)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane Smith</td>
+          <td>1995-05-15</td>
+          <td>9876543210</td>
+          <td><button class="delete-button" onclick="deleteStudent(2)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Bob Johnson</td>
+          <td>1988-08-20</td>
+          <td>5551234567</td>
+          <td><button class="delete-button" onclick="deleteStudent(3)">Delete</button></td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <script src="./js/main.js"></script>
 </body>
 
 </html>

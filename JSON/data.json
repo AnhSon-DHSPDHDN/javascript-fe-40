@@ -1,0 +1,50 @@
+[
+  {
+    "name": "duy",
+    "age": 18,
+    "score": {
+      "math": 9,
+      "english": 6
+    }
+  },
+  {
+    "name": "tuan",
+    "age": 18,
+    "score": {
+      "math": 10,
+      "english": 10
+    }
+  },
+  {
+    "name": "hung",
+    "age": 18,
+    "score": {
+      "math": 7,
+      "english": 3
+    }
+  },
+  {
+    "name": "hau",
+    "age": 18,
+    "score": {
+      "math": 2,
+      "english": 6
+    }
+  },
+  {
+    "name": "cuong",
+    "age": 18,
+    "score": {
+      "math": 7,
+      "english": 8
+    }
+  },
+  {
+    "name": "son",
+    "age": 18,
+    "score": {
+      "math": 4,
+      "english": 6
+    }
+  }
+]
